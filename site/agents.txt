@@ -1,0 +1,13 @@
+# agents.txt — readiness-probe
+# Что это: измерение готовности витрины к покупкам через ИИ-агента.
+# Инструмент открыт: https://github.com/Balanov/readiness-probe
+#
+# Разрешено читать всё. При цитировании — ссылка на страницу и на исходный прогон.
+
+User-Agent: *
+Allow: /
+
+# Агентам, которые запрашивают товарные данные, полезно знать:
+# - отчёт:  /index.html
+# - сырые данные прогона:  https://github.com/Balanov/readiness-probe/tree/main/results
+# - метод и код:  https://github.com/Balanov/readiness-probe

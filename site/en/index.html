@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can an AI agent buy from your store — measured across 21 storefronts</title>
+<meta name="description" content="Anonymous GET, no browser automation: how many products at Russian storefronts an AI shopping agent can actually buy. 21 storefronts, 7 controls, open source.">
+<meta name="theme-color" content="#fbfcfe">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%233b5bdb' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%233b5bdb'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../_theme.css">
+<link rel="canonical" href="https://balanov.github.io/readiness-probe/en/">
+<link rel="alternate" hreflang="ru" href="https://balanov.github.io/readiness-probe/">
+<link rel="alternate" hreflang="en" href="https://balanov.github.io/readiness-probe/en/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Agent-readiness of Russian storefronts",
+  "description": "Measurement of structural readability of 21 storefronts for an AI shopping agent: anonymous GET without browser automation, with 7 control targets.",
+  "dateCreated": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "inLanguage": "en",
+  "creator": { "@type": "Person", "name": "Anton Balanov", "url": "https://balanov.pro/" },
+  "license": "https://opensource.org/licenses/MIT",
+  "codeRepository": "https://github.com/Balanov/readiness-probe",
+  "measurementTechnique": "Anonymous HTTP GET without browser automation or authorization",
+  "variableMeasured": ["httpStatusCode", "jsonLdEntityCount", "requiredFieldCoverage", "productFeedPresence", "agentCheckoutSurface"],
+  "distribution": [
+    { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://github.com/Balanov/readiness-probe/tree/main/results" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "readiness-probe",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "description": "Measure what an AI shopping agent can read from a storefront. Python 3, no dependencies, MIT.",
+  "softwareVersion": "1.0.0",
+  "author": { "@type": "Person", "name": "Anton Balanov", "url": "https://balanov.pro/" },
+  "codeRepository": "https://github.com/Balanov/readiness-probe",
+  "license": "https://opensource.org/licenses/MIT"
+}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>readiness&#8209;probe</a>
+    <nav class="nav">
+      <a href="#method">Method</a>
+      <a href="#result">Result</a>
+      <a href="#blocked">Who is blocked</a>
+      <a href="#control">Control</a>
+      <a href="#reproduce">Reproduce</a>
+    </nav>
+    <span class="stamp">measured: 2026-11-15</span>
+    <a class="gh" href="../agents.txt" rel="noopener">RU</a>
+    <a class="gh" href="https://github.com/Balanov/readiness-probe" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">●</span> 21 storefronts measured · open source</span>
+    <h1>What stops an <em>AI agent</em> from buying your product</h1>
+    <p class="lede">
+      A shopping agent arrives anonymously: no browser automation, no login, no JavaScript fallback.
+      We asked 21 Russian storefronts exactly that way and counted what comes back.
+      Seven control storefronts separate a store's gap from a flaw in the instrument.
+    </p>
+
+    <div class="stats">
+      <div class="stat bad reveal">
+        <div class="n" data-count="0">0</div>
+        <div class="k">of 75 product cards</div>
+        <div class="d">an agent can buy none of them: the SKU and availability fields are missing</div>
+      </div>
+      <div class="stat reveal">
+        <div class="n" data-count="2.7" data-decimals="1" data-suffix="%">0%</div>
+        <div class="k">sku coverage</div>
+        <div class="d">100% in the control group with good markup — a 37× gap</div>
+      </div>
+      <div class="stat bad reveal">
+        <div class="n" data-count="35" data-suffix="%">0%</div>
+        <div class="k">of storefronts unreachable</div>
+        <div class="d">6 of 17 do not serve an anonymous agent a page at all</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">01</span><h2>Method</h2></div>
+    <p class="sec-sub reveal">
+      No eyeballing. Every metric comes from a specific signal in the server response,
+      and the whole run reproduces with one command on a clean machine.
+    </p>
+
+    <div class="fields">
+      <div class="field reveal"><span class="name">name<span>title</span></span><span class="track"><span class="fill" data-w="100"></span></span><span class="val" data-count="100" data-suffix="%">0%</span></div>
+      <div class="field reveal"><span class="name">price<span>price</span></span><span class="track"><span class="fill" data-w="100"></span></span><span class="val" data-count="100" data-suffix="%">0%</span></div>
+      <div class="field reveal"><span class="name">priceCurrency<span>currency</span></span><span class="track"><span class="fill" data-w="100"></span></span><span class="val" data-count="100" data-suffix="%">0%</span></div>
+      <div class="field reveal"><span class="name">brand<span>brand</span></span><span class="track"><span class="fill" data-w="98.7"></span></span><span class="val" data-count="98.7" data-decimals="1" data-suffix="%">0%</span></div>
+      <div class="field gap reveal"><span class="name">sku<span>SKU</span></span><span class="track"><span class="fill" data-w="2.7"></span></span><span class="val" data-count="2.7" data-decimals="1" data-suffix="%">0%</span></div>
+      <div class="field gap reveal"><span class="name">availability<span>availability</span></span><span class="track"><span class="fill" data-w="2.7"></span></span><span class="val" data-count="2.7" data-decimals="1" data-suffix="%">0%</span></div>
+      <div class="field gap reveal"><span class="name">gtin<span>GTIN/EAN/UPC — see caveat</span></span><span class="track"><span class="fill" data-w="0"></span></span><span class="val" data-count="0" data-suffix="%">0%</span></div>
+    </div>
+
+    <p class="sec-sub reveal" style="margin-top:30px">
+      Every field is looked up by an exact, checkable rule: the name comes from the product entity,
+      price, currency and availability from its <code>offers</code> — they often sit in a separate
+      Offer node with no name of its own. <code>gtin</code> is counted strictly: a <code>gtin</code>/
+      <code>gtinN</code> field, or an <code>identifier</code> whose name contains gtin/ean/upc.
+    </p>
+  </div>
+</section>
+
+<section id="result">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">02</span><h2>What it means</h2></div>
+    <p class="sec-sub reveal">
+      The storefront tells the agent what the product is and what it costs — and stays silent on
+      which SKU it is and whether it is in stock. Without availability, stock cannot be checked
+      before the charge; without a SKU, the item cannot be matched to a substitute or to anything else.
+    </p>
+
+    <div class="notes">
+      <div class="note-box reveal"><span class="i">!</span><p><b>Availability — 2,7%.</b> The most damaging of the three gaps: agentic commerce protocols require a stock check immediately before the charge. With <code>availability</code> missing, checkout should never reach payment.</p></div>
+      <div class="note-box reveal"><span class="i">!</span><p><b>SKU — 2,7%.</b> Product identifiers are almost entirely absent, so an agent can neither match an item nor substitute an unavailable one nor assemble a cart from several variants.</p></div>
+      <div class="note-box reveal"><span class="i">i</span><p><b>Caveat on GTIN.</b> <code>gtin</code> is 0% in the main set <b>and</b> in the control group. Either GTIN is genuinely not published in JSON-LD, or our definition is too strict. That is why GTIN is <b>not used as an argument</b>: the comparison says nothing when both values are zero. The arguments rest on <code>sku</code> and <code>availability</code>, where the gap is unambiguous.</p></div>
+      <div class="note-box reveal"><span class="i">i</span><p><b>Independent corroboration.</b> Gartner: roughly 40% of AI assistants skip products with incomplete structured data, and only 23% of stores carry full <code>Product</code> markup. Structured feeds supply 34% of all agent candidates and 61% of shortlist entries.</p></div>
+      <div class="note-box reveal"><span class="i">i</span><p><b>And this is already money.</b> AI referral traffic to retailers grew 393% year over year; Shopify reports ×7 traffic and ×11 orders via AI; and customers arriving from AI traffic convert 42% better than from ordinary search. The channel is growing — and the products in it are invisible.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="blocked">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">03</span><h2>Who is blocked outright</h2></div>
+    <p class="sec-sub reveal">
+      This is not "incomplete markup". This is "no page served". A storefront like this simply does
+      not exist for an agent that does not use browser automation.
+    </p>
+    <div class="codes">
+      <div class="code reveal"><div class="st">401</div><div class="who">DNS</div><div class="note">authorization required</div></div>
+      <div class="code reveal"><div class="st">401</div><div class="who">Sportmaster</div><div class="note">authorization required</div></div>
+      <div class="code reveal"><div class="st">403</div><div class="who">VseInstrumenti</div><div class="note">access denied</div></div>
+      <div class="code reveal"><div class="st">307</div><div class="who">Ozon</div><div class="note">redirect to a different surface</div></div>
+      <div class="code reveal"><div class="st">498</div><div class="who">Wildberries</div><div class="note">non-standard protection code</div></div>
+      <div class="code reveal"><div class="st">439</div><div class="who">Avito</div><div class="note">non-standard protection code</div></div>
+    </div>
+    <p class="sec-sub reveal" style="margin-top:26px">
+      The control group behaves the same way: OBI and Booking.com return <code>202</code> — a WAF
+      placeholder instead of content. Four storefronts in the main set were unreachable from the
+      measurement host: that is a property of the environment, not a finding about the site, and
+      the report says so explicitly.
+    </p>
+  </div>
+</section>
+
+<section id="control">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">04</span><h2>The control group</h2></div>
+    <p class="sec-sub reveal">
+      Without it, any report of this kind may end up describing only the instrument.
+      Seven storefronts with deliberately good server-side markup — and the difference is immediate.
+    </p>
+
+    <div class="compare">
+      <div class="panel good reveal">
+        <h3>Control · Samsung RU</h3>
+        <div class="big">100%</div>
+        <p><code>sku</code> filled. Availability — 40%.</p>
+        <div class="bars">
+          <div class="b"><span>sku</span><span class="track"><span class="fill" data-w="100"></span></span><span class="v">100%</span></div>
+          <div class="b"><span>availability</span><span class="track"><span class="fill" data-w="40"></span></span><span class="v">40%</span></div>
+          <div class="b"><span>name</span><span class="track"><span class="fill" data-w="100"></span></span><span class="v">100%</span></div>
+        </div>
+      </div>
+      <div class="panel main reveal">
+        <h3>Main set · 21 storefronts</h3>
+        <div class="big">2,7%</div>
+        <p>The same <code>sku</code> field. A <b>37× gap</b>.</p>
+        <div class="bars">
+          <div class="b gap"><span>sku</span><span class="track"><span class="fill" data-w="2.7"></span></span><span class="v">2,7%</span></div>
+          <div class="b gap"><span>availability</span><span class="track"><span class="fill" data-w="2.7"></span></span><span class="v">2,7%</span></div>
+          <div class="b"><span>name</span><span class="track"><span class="fill" data-w="100"></span></span><span class="v">100%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sec-sub reveal" style="margin-top:46px;margin-bottom:18px">Six defects the control group found</h3>
+    <p class="sec-sub reveal" style="margin-top:-6px">
+      Each of them changed the numbers. That is why the fix history is published alongside the
+      result: a report built without a control group very likely contains false figures — and any
+      technical reader will spot them before the author does.
+    </p>
+
+    <div class="timeline">
+      <div class="tl reveal"><div class="h">Image links were counted as product cards</div><div class="w"><code>.webp</code> and <code>.jpg</code> hrefs landed in the list. Control: Samsung RU came out as unreachable.</div><div class="c">fixed: filter by extension</div></div>
+      <div class="tl reveal"><div class="h">Sitemap files were counted as products</div><div class="w">Targets included <code>page.xml.gz</code> and <code>sitemap_1.xml</code>. Control: BHF and M.Video "found" 5 products each.</div><div class="c">fixed: exclude .xml / .gz / .txt URLs</div></div>
+      <div class="tl reveal"><div class="h">.xml.gz archives were never decompressed</div><div class="w">The product map read as garbage and the agent found nothing. Control: 0 product nodes despite a non-empty sitemap.</div><div class="c">fixed: gzip decompression</div></div>
+      <div class="tl reveal"><div class="h">Russian storefront URLs do not contain /product/</div><div class="w">Sitemap traversal found nothing: most paths look like <code>/smartfony-22899/</code>. Control: Samsung RU was not found at all.</div><div class="c">fixed: identifier-in-path heuristic</div></div>
+      <div class="tl reveal"><div class="h">The parser returned the markup wrapper, not the entity</div><div class="w">A node looked like <code>{schema, category, price}</code> — every field empty. Control: <code>name</code> was false for a product with an obvious title.</div><div class="c">fixed: node matched by its own @type</div></div>
+      <div class="tl reveal"><div class="h">Price and availability sat in a nameless Offer node</div><div class="w">The entity's own name was ignored and fields read as absent. Control: <code>name</code> = false for a product with a title.</div><div class="c">fixed: name from the entity, price and availability from offers</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reproduce">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">05</span><h2>Reproduce</h2></div>
+    <p class="sec-sub reveal">
+      Python 3, no dependencies, MIT. Run it against your own catalogue and you get your own numbers,
+      not ours.
+    </p>
+<pre class="reveal"><code><span class="c"># clone and run against 21 storefronts</span>
+git clone https://github.com/Balanov/readiness-probe.git
+cd readiness-probe
+python readiness_probe.py --targets targets.json --out out
+
+<span class="c"># your own storefront — single target, base mode</span>
+python readiness_probe.py --url <span class="p">"https://your-store.example/catalog/"</span> --name YourStore --out out</code></pre>
+    <div class="cta reveal">
+      <a class="btn primary" href="https://github.com/Balanov/readiness-probe" rel="noopener">Open the repository ↗</a>
+      <a class="btn ghost" href="https://github.com/Balanov/readiness-probe/tree/main/results">Raw run data</a>
+      <a class="btn ghost" href="https://github.com/Balanov/readiness-probe/blob/main/results/readiness.md">Full report</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Anton Balanov · <a href="https://balanov.pro/">balanov.pro</a> · MIT · measured 15 November 2026</span>
+    <span>This page passes its own test: <code>Dataset</code> + <code>SoftwareApplication</code> in JSON-LD, <a href="../agents.txt">agents.txt</a>, <a href="../llms.txt">llms.txt</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function fmt(v, dec) {
+    return v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  }
+  function countUp(el) {
+    var target = parseFloat(el.dataset.count || "0");
+    var dec = parseInt(el.dataset.decimals || "0", 10);
+    var suffix = el.dataset.suffix || "";
+    if (reduced) { el.textContent = fmt(target, dec) + suffix; return; }
+    var t0 = null, dur = 900;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * eased, dec) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function grow(el) { el.style.width = (parseFloat(el.dataset.w || "0")) + "%"; }
+
+  var counters = document.querySelectorAll("[data-count]");
+  var bars = document.querySelectorAll(".fill");
+  var reveals = document.querySelectorAll(".reveal");
+  var statCards = document.querySelectorAll(".stat");
+
+  function showAll() {
+    counters.forEach(countUp);
+    bars.forEach(grow);
+    reveals.forEach(function (el) { el.classList.add("in"); });
+    statCards.forEach(function (el) { el.classList.add("in"); });
+  }
+  if (!("IntersectionObserver" in window) || reduced) { showAll(); return; }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      if (el.classList.contains("reveal")) el.classList.add("in");
+      if (el.hasAttribute("data-count")) countUp(el);
+      if (el.classList.contains("fill")) grow(el);
+      if (el.classList.contains("stat")) el.classList.add("in");
+      io.unobserve(el);
+    });
+  }, { threshold: 0.25, rootMargin: "0px 0px -60px 0px" });
+
+  reveals.forEach(function (el) { io.observe(el); });
+  counters.forEach(function (el) { io.observe(el); });
+  bars.forEach(function (el) { io.observe(el); });
+  statCards.forEach(function (el) { io.observe(el); });
+  document.querySelectorAll(".b .fill").forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>

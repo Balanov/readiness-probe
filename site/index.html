@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Готов ли ваш магазин к покупкам через ИИ-агента — измерение на 21 витрине</title>
+<meta name="description" content="Анонимный GET, без браузерной автоматизации: сколько товаров в российских магазинах ИИ-агент покупателя способен купить. 21 витрина, 7 контрольных, открытый код.">
+<meta name="theme-color" content="#fbfcfe">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%233b5bdb' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%233b5bdb'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./_theme.css">
+<link rel="canonical" href="https://balanov.github.io/readiness-probe/">
+
+<!-- Разметка страницы — та же, которую мы измеряем у магазинов. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Готовность российских магазинов к покупкам через ИИ-агента",
+  "description": "Измерение структурной доступности 21 витрины для ИИ-агента покупателя: анонимный GET без браузерной автоматизации. С 7 контрольными целями.",
+  "dateCreated": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "inLanguage": "ru",
+  "creator": { "@type": "Person", "name": "Антон Баланов", "url": "https://balanov.pro/" },
+  "license": "https://opensource.org/licenses/MIT",
+  "codeRepository": "https://github.com/Balanov/readiness-probe",
+  "measurementTechnique": "Анонимный HTTP GET без браузерной автоматизации и без авторизации",
+  "variableMeasured": ["httpStatusCode", "jsonLdEntityCount", "requiredFieldCoverage", "productFeedPresence", "agentCheckoutSurface"],
+  "distribution": [
+    { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://github.com/Balanov/readiness-probe/tree/main/results" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "readiness-probe",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "description": "Измеритель готовности витрины к покупкам через ИИ-агента. Python 3, без зависимостей, MIT.",
+  "softwareVersion": "1.0.0",
+  "author": { "@type": "Person", "name": "Антон Баланов", "url": "https://balanov.pro/" },
+  "codeRepository": "https://github.com/Balanov/readiness-probe",
+  "license": "https://opensource.org/licenses/MIT"
+}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>readiness&#8209;probe</a>
+    <nav class="nav">
+      <a href="#method">Метод</a>
+      <a href="#result">Результат</a>
+      <a href="#blocked">Кто закрыт</a>
+      <a href="#control">Контроль</a>
+      <a href="#reproduce">Воспроизвести</a>
+    </nav>
+    <span class="stamp">замер: 15.11.2026</span>
+    <a class="gh" href="./en/" rel="noopener">EN</a>
+    <a class="gh" href="https://github.com/Balanov/readiness-probe" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">●</span> измерение на 21 витрине · открытый код</span>
+    <h1>Что мешает <em>ИИ-агенту</em> купить ваш товар</h1>
+    <p class="lede">
+      Агент покупателя приходит анонимно: без браузерной автоматизации, без логина, без JavaScript-обхода.
+      Мы спросили 21 российскую витрину ровно так же и посчитали, что она отдаёт.
+      Отдельно — семь контрольных витрин, чтобы отличить пробел магазина от дефекта измерителя.
+    </p>
+
+    <div class="stats">
+      <div class="stat bad reveal">
+        <div class="n" data-count="0" data-suffix="">0</div>
+        <div class="k">из 75 карточек</div>
+        <div class="d">агент не может купить ни одну: не хватает артикула и наличия</div>
+      </div>
+      <div class="stat reveal">
+        <div class="n" data-count="2.7" data-decimals="1" data-suffix="%">0%</div>
+        <div class="k">заполнено поле sku</div>
+        <div class="d">в контрольной группе с хорошей разметкой — 100%. Разница в 37 раз</div>
+      </div>
+      <div class="stat bad reveal">
+        <div class="n" data-count="35" data-suffix="%">0%</div>
+        <div class="k">витрин недоступны</div>
+        <div class="d">6 из 17 не отдают анонимному агенту страницу вообще</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">01</span><h2>Метод</h2></div>
+    <p class="sec-sub reveal">
+      Никакой эвристики «на глаз». Каждая метрика выведена из конкретного сигнала в ответе сервера,
+      и весь прогон воспроизводится одной командой на чистой машине.
+    </p>
+
+    <div class="fields">
+      <div class="field reveal"><span class="name">name<span>название товара</span></span><span class="track"><span class="fill" data-w="100"></span></span><span class="val" data-count="100" data-suffix="%">0%</span></div>
+      <div class="field reveal"><span class="name">price<span>цена</span></span><span class="track"><span class="fill" data-w="100"></span></span><span class="val" data-count="100" data-suffix="%">0%</span></div>
+      <div class="field reveal"><span class="name">priceCurrency<span>валюта</span></span><span class="track"><span class="fill" data-w="100"></span></span><span class="val" data-count="100" data-suffix="%">0%</span></div>
+      <div class="field reveal"><span class="name">brand<span>бренд</span></span><span class="track"><span class="fill" data-w="98.7"></span></span><span class="val" data-count="98.7" data-decimals="1" data-suffix="%">0%</span></div>
+      <div class="field gap reveal"><span class="name">sku<span>артикул</span></span><span class="track"><span class="fill" data-w="2.7"></span></span><span class="val" data-count="2.7" data-decimals="1" data-suffix="%">0%</span></div>
+      <div class="field gap reveal"><span class="name">availability<span>наличие</span></span><span class="track"><span class="fill" data-w="2.7"></span></span><span class="val" data-count="2.7" data-decimals="1" data-suffix="%">0%</span></div>
+      <div class="field gap reveal"><span class="name">gtin<span>GTIN/EAN/UPC — см. оговорку</span></span><span class="track"><span class="fill" data-w="0"></span></span><span class="val" data-count="0" data-suffix="%">0%</span></div>
+    </div>
+
+    <p class="sec-sub reveal" style="margin-top:30px">
+      Поля ищутся по точному правилу, которое можно перепроверить: имя — у сущности товара,
+      цена, валюта и наличие — у её <code>offers</code>, потому что они часто лежат в отдельном
+      узле Offer без имени. <code>gtin</code> считается строго: поле <code>gtin</code>/<code>gtinN</code>
+      либо <code>identifier</code> с именем, содержащим gtin/ean/upc.
+    </p>
+  </div>
+</section>
+
+<section id="result">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">02</span><h2>Что это значит</h2></div>
+    <p class="sec-sub reveal">
+      Витрина говорит агенту «что это и сколько стоит» — и молчит про то, какой это артикул
+      и есть ли он сейчас в наличии. Но без наличия нельзя проверить остаток перед списанием,
+      а без артикула агент не может сопоставить позицию с заменой или с другим товаром.
+    </p>
+
+    <div class="notes">
+      <div class="note-box reveal"><span class="i">!</span><p><b>Наличие — 2,7%.</b> Это самое разрушительное из трёх пробелов: протоколы агентной коммерции требуют проверить остаток непосредственно перед списанием. Без поля <code>availability</code> оформление заказа не должно доходить до оплаты.</p></div>
+      <div class="note-box reveal"><span class="i">!</span><p><b>Артикул — 2,7%.</b> Идентификатора товара нет почти нигде, поэтому агент не может ни сопоставить позицию, ни заменить отсутствующую, ни собрать корзину из нескольких SKU одного типа.</p></div>
+      <div class="note-box reveal"><span class="i">i</span><p><b>Оговорка про GTIN.</b> Поле <code>gtin</code> — 0% и в основном наборе, и в контрольной группе. Значит либо GTIN действительно не публикуется в JSON-LD, либо наше определение слишком строгое. Поэтому GTIN <b>не используется как аргумент</b>: сравнение неинформативно, когда оба значения нулевые. Аргументы построены на <code>sku</code> и <code>availability</code>, где разница однозначна.</p></div>
+      <div class="note-box reveal"><span class="i">i</span><p><b>Где это подтверждается независимо.</b> Gartner: около 40% ИИ-ассистентов пропускают товары с неполными структурированными данными, а полная разметка <code>Product</code> есть только у 23% магазинов. Структурированные фиды дают 34% всех кандидатов агента и 61% попаданий в шорт-лист.</p></div>
+      <div class="note-box reveal"><span class="i">i</span><p><b>И это уже деньги.</b> Трафик от ИИ к ритейлерам вырос на 393% за год, у Shopify — ×7 трафика и ×11 заказов через ИИ, а конверсия покупателей из AI-трафика на 42% лучше обычного поиска. Канал растёт — а товары в нём не видны.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="blocked">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">03</span><h2>Кто закрыт целиком</h2></div>
+    <p class="sec-sub reveal">
+      Это не «отдают неполную разметку». Это — не отдают страницу. Агент без браузерной
+      автоматизации такие магазины просто не видит.
+    </p>
+    <div class="codes">
+      <div class="code reveal"><div class="st">401</div><div class="who">DNS</div><div class="note">требует авторизацию</div></div>
+      <div class="code reveal"><div class="st">401</div><div class="who">Спортмастер</div><div class="note">требует авторизацию</div></div>
+      <div class="code reveal"><div class="st">403</div><div class="who">ВсеИнструменты</div><div class="note">доступ запрещён</div></div>
+      <div class="code reveal"><div class="st">307</div><div class="who">Ozon</div><div class="note">редирект на другой контур</div></div>
+      <div class="code reveal"><div class="st">498</div><div class="who">Wildberries</div><div class="note">нестандартный код защиты</div></div>
+      <div class="code reveal"><div class="st">439</div><div class="who">Avito</div><div class="note">нестандартный код защиты</div></div>
+    </div>
+    <p class="sec-sub reveal" style="margin-top:26px">
+      Контрольная группа ведёт себя так же: OBI и Booking.com отдают <code>202</code> — заглушку WAF
+      вместо контента. Ещё четыре витрины из основного набора недоступны по сети из среды запуска —
+      это ограничение среды, а не находка сайта, и в отчёте оно указано отдельной строкой.
+    </p>
+  </div>
+</section>
+
+<section id="control">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">04</span><h2>Контрольная группа</h2></div>
+    <p class="sec-sub reveal">
+      Без неё любой отчёт такого рода может оказаться правдой только про измеритель.
+      Семь витрин, где серверная разметка заведомо хорошая, — и разница сразу видна.
+    </p>
+
+    <div class="compare">
+      <div class="panel good reveal">
+        <h3>Контроль · Samsung RU</h3>
+        <div class="big">100%</div>
+        <p>поля <code>sku</code> заполнено. Наличие — 40%.</p>
+        <div class="bars">
+          <div class="b"><span>sku</span><span class="track"><span class="fill" data-w="100"></span></span><span class="v">100%</span></div>
+          <div class="b"><span>availability</span><span class="track"><span class="fill" data-w="40"></span></span><span class="v">40%</span></div>
+          <div class="b"><span>name</span><span class="track"><span class="fill" data-w="100"></span></span><span class="v">100%</span></div>
+        </div>
+      </div>
+      <div class="panel main reveal">
+        <h3>Основной набор · 21 витрина</h3>
+        <div class="big">2,7%</div>
+        <p>то же поле <code>sku</code>. Разница — <b>в 37 раз</b>.</p>
+        <div class="bars">
+          <div class="b gap"><span>sku</span><span class="track"><span class="fill" data-w="2.7"></span></span><span class="v">2,7%</span></div>
+          <div class="b gap"><span>availability</span><span class="track"><span class="fill" data-w="2.7"></span></span><span class="v">2,7%</span></div>
+          <div class="b"><span>name</span><span class="track"><span class="fill" data-w="100"></span></span><span class="v">100%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sec-sub reveal" style="margin-top:46px;margin-bottom:18px">Шесть дефектов, которые нашла контрольная группа</h3>
+    <p class="sec-sub reveal" style="margin-top:-6px">
+      Каждый из них менял числа. Поэтому история исправлений публикуется вместе с результатом:
+      отчёт, собранный без контрольной группы, с высокой вероятностью содержит ложные цифры —
+      и любой технический читатель обнаружит это быстрее автора.
+    </p>
+
+    <div class="timeline">
+      <div class="tl reveal"><div class="h">Ссылки на картинки принимались за карточки товаров</div><div class="w">В список попадали <code>.webp</code> и <code>.jpg</code> из href. Контроль: Samsung RU помечался как недоступный.</div><div class="c">исправлено: фильтр по расширению</div></div>
+      <div class="tl reveal"><div class="h">Файлы sitemap принимались за товары</div><div class="w">В карточки попадали <code>page.xml.gz</code> и <code>sitemap_1.xml</code>. Контроль: у BHF и М.Видео «нашлось» 5 товаров.</div><div class="c">исправлено: исключены URL с .xml / .gz / .txt</div></div>
+      <div class="tl reveal"><div class="h">Архивы .xml.gz не распаковывались</div><div class="w">Карта с товарами читалась как мусор, и агент не находил ничего. Контроль: 0 Product-узлов при непустом sitemap.</div><div class="c">исправлено: распаковка gzip</div></div>
+      <div class="tl reveal"><div class="h">Товарные URL русских витрин не содержат /product/</div><div class="w">Обход по sitemap ничего не находил: у большинства витрин путь вида <code>/smartfony-22899/</code>. Контроль: Samsung RU не находился вообще.</div><div class="c">исправлено: эвристика по идентификатору в пути</div></div>
+      <div class="tl reveal"><div class="h">Парсер возвращал обёртку разметки вместо сущности</div><div class="w">Узел выглядел как <code>{schema, category, price}</code> — все поля пусты. Контроль: у товара с очевидным названием не находилось <code>name</code>.</div><div class="c">исправлено: узел определяется по собственному @type</div></div>
+      <div class="tl reveal"><div class="h">Цена и наличие лежали в отдельном узле Offer без имени</div><div class="w">Имя сущности игнорировалось, поля читались как отсутствующие. Контроль: <code>name</code> = false у товара с названием.</div><div class="c">исправлено: имя у сущности, цена и наличие у offers</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reproduce">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">05</span><h2>Воспроизвести</h2></div>
+    <p class="sec-sub reveal">
+      Python 3, без зависимостей, MIT. Проверьте на своём каталоге — и увидите свои числа, а не наши.
+    </p>
+<pre class="reveal"><code><span class="c"># клонировать и запустить на 21 витрине</span>
+git clone https://github.com/Balanov/readiness-probe.git
+cd readiness-probe
+python readiness_probe.py --targets targets.json --out out
+
+<span class="c"># своя витрина — одна цель, базовый режим</span>
+python readiness_probe.py --url <span class="p">"https://ваш-магазин.ру/catalog/"</span> --name ВашМагазин --out out</code></pre>
+    <div class="cta reveal">
+      <a class="btn primary" href="https://github.com/Balanov/readiness-probe" rel="noopener">Открыть репозиторий ↗</a>
+      <a class="btn ghost" href="https://github.com/Balanov/readiness-probe/tree/main/results">Сырые данные прогона</a>
+      <a class="btn ghost" href="https://github.com/Balanov/readiness-probe/blob/main/results/readiness.md">Отчёт целиком</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Антон Баланов · <a href="https://balanov.pro/">balanov.pro</a> · MIT · замер 15 ноября 2026</span>
+    <span>Страница сама разметку проверяет: <code>Dataset</code> + <code>SoftwareApplication</code> в JSON-LD, <a href="./agents.txt">agents.txt</a>, <a href="./llms.txt">llms.txt</a></span>
+  </div>
+</footer>
+
+<script>
+/* Появление блоков, рост полос и счёт чисел — по IntersectionObserver.
+   Уважаем prefers-reduced-motion: всё показывается сразу. */
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function countUp(el) {
+    var target = parseFloat(el.dataset.count || "0");
+    var dec = parseInt(el.dataset.decimals || "0", 10);
+    var suffix = el.dataset.suffix || "";
+    if (reduced) { el.textContent = fmt(target, dec) + suffix; return; }
+    var t0 = null, dur = 900;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * eased, dec) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function fmt(v, dec) {
+    return v.toLocaleString("ru-RU", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  }
+  function grow(el) {
+    el.style.width = (parseFloat(el.dataset.w || "0")) + "%";
+  }
+
+  var counters = document.querySelectorAll("[data-count]");
+  var bars = document.querySelectorAll(".fill");
+  var reveals = document.querySelectorAll(".reveal");
+  var statCards = document.querySelectorAll(".stat");
+
+  function showAll() {
+    counters.forEach(countUp);
+    bars.forEach(grow);
+    reveals.forEach(function (el) { el.classList.add("in"); });
+    statCards.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  if (!("IntersectionObserver" in window) || reduced) { showAll(); return; }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      if (el.classList.contains("reveal")) el.classList.add("in");
+      if (el.hasAttribute("data-count")) countUp(el);
+      if (el.classList.contains("fill")) grow(el);
+      if (el.classList.contains("stat")) el.classList.add("in");
+      io.unobserve(el);
+    });
+  }, { threshold: 0.25, rootMargin: "0px 0px -60px 0px" });
+
+  reveals.forEach(function (el) { io.observe(el); });
+  counters.forEach(function (el) { io.observe(el); });
+  bars.forEach(function (el) { io.observe(el); });
+  statCards.forEach(function (el) { io.observe(el); });
+
+  /* Полоски внутри панелей сравнения — свои элементы с data-w */
+  document.querySelectorAll(".b .fill").forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
