@@ -1,0 +1,23 @@
+[
+  { "name": "DNS",              "url": "https://www.dns-shop.ru/" },
+  { "name": "Citilink",         "url": "https://www.citilink.ru/" },
+  { "name": "Lamoda",           "url": "https://www.lamoda.ru/" },
+  { "name": "M.Video",          "url": "https://www.mvideo.ru/" },
+  { "name": "Eldorado",         "url": "https://www.eldorado.ru/" },
+  { "name": "Sportmaster",      "url": "https://www.sportmaster.ru/" },
+  { "name": "Tvoi Dom",         "url": "https://www.tvoidom.ru/" },
+  { "name": "Vse Instrumenti",  "url": "https://www.vseinstrumenti.ru/" },
+  { "name": "Zolla",            "url": "https://www.zolla.ru/" },
+  { "name": "HobbyMarket",      "url": "https://www.hobbymarket.ru/" },
+  { "name": "Ozon",             "url": "https://www.ozon.ru/" },
+  { "name": "Wildberries",      "url": "https://www.wildberries.ru/" },
+  { "name": "Avito",            "url": "https://www.avito.ru/" },
+  { "name": "Ostrovok",         "url": "https://www.ostrovok.ru/" },
+  { "name": "Tutu.ru",          "url": "https://www.tutu.ru/" },
+  { "name": "Vkusvill",         "url": "https://www.vkusvill.ru/" },
+  { "name": "Ostrovok B2B",     "url": "https://b2b.ostrovok.ru/" },
+  { "name": "Aviaseils",        "url": "https://www.aviasales.ru/" },
+  { "name": "Skillbox",         "url": "https://skillbox.ru/" },
+  { "name": "Rideela",          "url": "https://rideela.ru/" },
+  { "name": "M.Video product",  "url": "https://www.mvideo.ru/smartfony-22899/telefony-1/" }
+]

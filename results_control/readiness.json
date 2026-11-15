@@ -1,0 +1,353 @@
+{
+  "tool": "readiness-probe",
+  "version": "1.0.0",
+  "generated_at": "2026-11-15T00:42:08.874672+00:00",
+  "method": {
+    "anonymous_get": true,
+    "browser_automation": false,
+    "required_attrs": [
+      "name",
+      "brand",
+      "gtin",
+      "sku",
+      "price",
+      "priceCurrency",
+      "availability"
+    ],
+    "min_image_side": 600
+  },
+  "results": [
+    {
+      "name": "CONTROL Samsung RU",
+      "url": "https://www.samsung.com/ru/",
+      "status": 200,
+      "final_url": "https://www.samsung.com/ru/",
+      "rendered_bytes": 425776,
+      "text_chars": 12905,
+      "jsonld_blocks": 16,
+      "product_nodes": 3,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 543,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": 0.0,
+      "notes": [
+        "Из 3 Product-узлов полными являются 0 — остальные выпадают из сравнения агента"
+      ],
+      "error": "",
+      "score": {
+        "score": 40.0,
+        "verdict": "PARTIAL",
+        "reasons": [
+          "полных карточек только 0%",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 4,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 3,
+        "brand": 3,
+        "gtin": 0,
+        "sku": 3,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 3
+    },
+    {
+      "name": "CONTROL IKEA RU",
+      "url": "https://www.ikea.com/ru/ru/",
+      "status": 404,
+      "final_url": "https://www.ikea.com/ru/ru/",
+      "rendered_bytes": 86,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Анонимный GET вернул 404 — агент без браузера страницу не читает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 404",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "CONTROL Leroy Merlin",
+      "url": "https://www.leroymerlin.ru/",
+      "status": 0,
+      "final_url": "https://www.leroymerlin.ru/",
+      "rendered_bytes": 0,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Сеть недоступна или соединение прервано"
+      ],
+      "error": "__error__:URLError:<urlopen error [Errno 11001] getaddrinfo failed>",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 0",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "CONTROL OBI",
+      "url": "https://www.obi.ru/",
+      "status": 202,
+      "final_url": "https://obi.ru:443/",
+      "rendered_bytes": 0,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Ссылки на карточки товаров с витрины не обнаружены — проверьте, не отдаётся ли каталог только клиентским JS",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице",
+        "Сервер отдал SPA-оболочку: текста мало, разметки нет. Агент без браузерной автоматизации каталог не прочитает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 202",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 1,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "CONTROL BHF",
+      "url": "https://www.bhf.ru/",
+      "status": 200,
+      "final_url": "https://www.bhf.ru/",
+      "rendered_bytes": 1135,
+      "text_chars": 32,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Ссылки на карточки товаров с витрины не обнаружены — проверьте, не отдаётся ли каталог только клиентским JS",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице",
+        "Сервер отдал SPA-оболочку: текста мало, разметки нет. Агент без браузерной автоматизации каталог не прочитает"
+      ],
+      "error": "",
+      "score": {
+        "score": 15.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 1,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "CONTROL Citilink",
+      "url": "https://www.citilink.ru/",
+      "status": 200,
+      "final_url": "https://www.citilink.ru/",
+      "rendered_bytes": 1012112,
+      "text_chars": 4705,
+      "jsonld_blocks": 3,
+      "product_nodes": 2,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 72,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [
+          "YCP mention"
+        ],
+        "has_open_agent_checkout": true
+      },
+      "agent_visible_share": 0.0,
+      "notes": [
+        "Карточка 8ceb490d9f1d88c89e1db00c5ba84588.woff2: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка 605d5b6a7bdf8b7ddc7541da48544208.woff2: JSON-LD Product нет — агент не получит атрибуты",
+        "Из 2 Product-узлов полными являются 0 — остальные выпадают из сравнения агента"
+      ],
+      "error": "",
+      "score": {
+        "score": 50.0,
+        "verdict": "PARTIAL",
+        "reasons": [
+          "полных карточек только 0%",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 5,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 2,
+        "brand": 2,
+        "gtin": 0,
+        "sku": 2,
+        "price": 2,
+        "priceCurrency": 2,
+        "availability": 2
+      },
+      "field_total": 2
+    },
+    {
+      "name": "CONTROL Booking.com",
+      "url": "https://www.booking.com/",
+      "status": 202,
+      "final_url": "https://www.booking.com/",
+      "rendered_bytes": 8864,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Ссылки на карточки товаров с витрины не обнаружены — проверьте, не отдаётся ли каталог только клиентским JS",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице",
+        "Сервер отдал SPA-оболочку: текста мало, разметки нет. Агент без браузерной автоматизации каталог не прочитает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 202",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 1,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    }
+  ]
+}

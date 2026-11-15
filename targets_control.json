@@ -1,0 +1,9 @@
+[
+  { "name": "CONTROL Samsung RU",   "url": "https://www.samsung.com/ru/" },
+  { "name": "CONTROL IKEA RU",      "url": "https://www.ikea.com/ru/ru/" },
+  { "name": "CONTROL Leroy Merlin", "url": "https://www.leroymerlin.ru/" },
+  { "name": "CONTROL OBI",          "url": "https://www.obi.ru/" },
+  { "name": "CONTROL BHF",          "url": "https://www.bhf.ru/" },
+  { "name": "CONTROL Citilink",     "url": "https://www.citilink.ru/" },
+  { "name": "CONTROL Booking.com",  "url": "https://www.booking.com/" }
+]

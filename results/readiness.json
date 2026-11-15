@@ -1,0 +1,993 @@
+{
+  "tool": "readiness-probe",
+  "version": "1.0.0",
+  "generated_at": "2026-11-15T00:41:44.844903+00:00",
+  "method": {
+    "anonymous_get": true,
+    "browser_automation": false,
+    "required_attrs": [
+      "name",
+      "brand",
+      "gtin",
+      "sku",
+      "price",
+      "priceCurrency",
+      "availability"
+    ],
+    "min_image_side": 600
+  },
+  "results": [
+    {
+      "name": "DNS",
+      "url": "https://www.dns-shop.ru/",
+      "status": 401,
+      "final_url": "https://www.dns-shop.ru/",
+      "rendered_bytes": 6319,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Анонимный GET вернул 401 — агент без браузера страницу не читает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 401",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "Citilink",
+      "url": "https://www.citilink.ru/",
+      "status": 200,
+      "final_url": "https://www.citilink.ru/",
+      "rendered_bytes": 1012285,
+      "text_chars": 4705,
+      "jsonld_blocks": 3,
+      "product_nodes": 2,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 72,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [
+          "YCP mention"
+        ],
+        "has_open_agent_checkout": true
+      },
+      "agent_visible_share": 0.0,
+      "notes": [
+        "Карточка 8ceb490d9f1d88c89e1db00c5ba84588.woff2: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка 605d5b6a7bdf8b7ddc7541da48544208.woff2: JSON-LD Product нет — агент не получит атрибуты",
+        "Из 2 Product-узлов полными являются 0 — остальные выпадают из сравнения агента"
+      ],
+      "error": "",
+      "score": {
+        "score": 50.0,
+        "verdict": "PARTIAL",
+        "reasons": [
+          "полных карточек только 0%",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 5,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 2,
+        "brand": 2,
+        "gtin": 0,
+        "sku": 2,
+        "price": 2,
+        "priceCurrency": 2,
+        "availability": 2
+      },
+      "field_total": 2
+    },
+    {
+      "name": "Lamoda",
+      "url": "https://www.lamoda.ru/",
+      "status": 200,
+      "final_url": "https://www.lamoda.ru/",
+      "rendered_bytes": 1815,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Ссылки на карточки товаров с витрины не обнаружены — проверьте, не отдаётся ли каталог только клиентским JS",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице",
+        "Сервер отдал SPA-оболочку: текста мало, разметки нет. Агент без браузерной автоматизации каталог не прочитает"
+      ],
+      "error": "",
+      "score": {
+        "score": 15.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 1,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "M.Video",
+      "url": "https://www.mvideo.ru/",
+      "status": 200,
+      "final_url": "https://www.mvideo.ru/",
+      "rendered_bytes": 53827,
+      "text_chars": 106,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Ссылки на карточки товаров с витрины не обнаружены — проверьте, не отдаётся ли каталог только клиентским JS",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице",
+        "Сервер отдал SPA-оболочку: текста мало, разметки нет. Агент без браузерной автоматизации каталог не прочитает"
+      ],
+      "error": "",
+      "score": {
+        "score": 15.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 1,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "Eldorado",
+      "url": "https://www.eldorado.ru/",
+      "status": 200,
+      "final_url": "https://www.eldorado.ru/",
+      "rendered_bytes": 747558,
+      "text_chars": 3571,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [
+        "https://www.eldorado.ru/assets/js/feed.mtm.CPCkJ7Df.js",
+        "https://www.eldorado.ru/assets/js/listingFeed.request.dto.DVL8oMfh.js",
+        "https://www.eldorado.ru/assets/js/useInfiniteFeedQueryCore.hB65pdz3.js"
+      ],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Карточка mcombo-info: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка :id: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка :id: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка :id: JSON-LD Product нет — агент не получит атрибуты",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице",
+        "Сервер отдал SPA-оболочку: текста мало, разметки нет. Агент без браузерной автоматизации каталог не прочитает"
+      ],
+      "error": "",
+      "score": {
+        "score": 20.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout"
+        ]
+      },
+      "pages_probed": 5,
+      "sitemap_product_urls": 4,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "Sportmaster",
+      "url": "https://www.sportmaster.ru/",
+      "status": 401,
+      "final_url": "https://www.sportmaster.ru/",
+      "rendered_bytes": 10673,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Анонимный GET вернул 401 — агент без браузера страницу не читает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 401",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "Tvoi Dom",
+      "url": "https://www.tvoidom.ru/",
+      "status": 0,
+      "final_url": "https://www.tvoidom.ru/",
+      "rendered_bytes": 0,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Сеть недоступна или соединение прервано"
+      ],
+      "error": "__error__:URLError:<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)>",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 0",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "Vse Instrumenti",
+      "url": "https://www.vseinstrumenti.ru/",
+      "status": 403,
+      "final_url": "https://www.vseinstrumenti.ru/",
+      "rendered_bytes": 1863,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Анонимный GET вернул 403 — агент без браузера страницу не читает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 403",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "Zolla",
+      "url": "https://www.zolla.ru/",
+      "status": 0,
+      "final_url": "https://www.zolla.ru/",
+      "rendered_bytes": 0,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Сеть недоступна или соединение прервано"
+      ],
+      "error": "__error__:URLError:<urlopen error _ssl.c:1064: The handshake operation timed out>",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 0",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "HobbyMarket",
+      "url": "https://www.hobbymarket.ru/",
+      "status": 200,
+      "final_url": "https://www.hobbymarket.ru/",
+      "rendered_bytes": 52516,
+      "text_chars": 8691,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Ссылки на карточки товаров с витрины не обнаружены — проверьте, не отдаётся ли каталог только клиентским JS",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице"
+      ],
+      "error": "",
+      "score": {
+        "score": 15.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 1,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "Ozon",
+      "url": "https://www.ozon.ru/",
+      "status": 307,
+      "final_url": "https://www.ozon.ru/",
+      "rendered_bytes": 164,
+      "text_chars": 51,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Ссылки на карточки товаров с витрины не обнаружены — проверьте, не отдаётся ли каталог только клиентским JS",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице",
+        "Сервер отдал SPA-оболочку: текста мало, разметки нет. Агент без браузерной автоматизации каталог не прочитает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 307",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 1,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "Wildberries",
+      "url": "https://www.wildberries.ru/",
+      "status": 498,
+      "final_url": "https://www.wildberries.ru/",
+      "rendered_bytes": 1132,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Анонимный GET вернул 498 — агент без браузера страницу не читает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 498",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "Avito",
+      "url": "https://www.avito.ru/",
+      "status": 439,
+      "final_url": "https://www.avito.ru/",
+      "rendered_bytes": 13723,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Анонимный GET вернул 439 — агент без браузера страницу не читает"
+      ],
+      "error": "",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 439",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "Ostrovok",
+      "url": "https://www.ostrovok.ru/",
+      "status": 200,
+      "final_url": "https://ostrovok.ru/",
+      "rendered_bytes": 244433,
+      "text_chars": 9449,
+      "jsonld_blocks": 1,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [
+        "https://ostrovok.ru/feedback/"
+      ],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Карточка arzni: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка centr_goroda: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка map: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка mosesgeh: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка map: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка tsaghkunq_guest_house: JSON-LD Product нет — агент не получит атрибуты",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице"
+      ],
+      "error": "",
+      "score": {
+        "score": 20.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout"
+        ]
+      },
+      "pages_probed": 7,
+      "sitemap_product_urls": 400,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "Tutu.ru",
+      "url": "https://www.tutu.ru/",
+      "status": 200,
+      "final_url": "https://www.tutu.ru/",
+      "rendered_bytes": 273515,
+      "text_chars": 6170,
+      "jsonld_blocks": 1,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Карточка 39845f: JSON-LD Product нет — агент не получит атрибуты",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице"
+      ],
+      "error": "",
+      "score": {
+        "score": 15.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 2,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "Vkusvill",
+      "url": "https://www.vkusvill.ru/",
+      "status": 0,
+      "final_url": "https://www.vkusvill.ru/",
+      "rendered_bytes": 0,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Сеть недоступна или соединение прервано"
+      ],
+      "error": "__error__:URLError:<urlopen error _ssl.c:1064: The handshake operation timed out>",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 0",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "Ostrovok B2B",
+      "url": "https://b2b.ostrovok.ru/",
+      "status": 200,
+      "final_url": "https://b2b.ostrovok.ru/",
+      "rendered_bytes": 139321,
+      "text_chars": 5375,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [
+          "YCP mention"
+        ],
+        "has_open_agent_checkout": true
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Карточка 9437800: JSON-LD Product нет — агент не получит атрибуты",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице"
+      ],
+      "error": "",
+      "score": {
+        "score": 25.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 2,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    },
+    {
+      "name": "Aviaseils",
+      "url": "https://www.aviasales.ru/",
+      "status": 200,
+      "final_url": "https://www.aviasales.ru/",
+      "rendered_bytes": 751969,
+      "text_chars": 6287,
+      "jsonld_blocks": 2,
+      "product_nodes": 1,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 1,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": 0.0,
+      "notes": [
+        "Карточка 9-air-co-ltd: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка a-p-g-distribution-system: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка advanced-air: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка aer-lingus: JSON-LD Product нет — агент не получит атрибуты",
+        "Карточка aero-k-airlines: JSON-LD Product нет — агент не получит атрибуты",
+        "Из 1 Product-узлов полными являются 0 — остальные выпадают из сравнения агента"
+      ],
+      "error": "",
+      "score": {
+        "score": 40.0,
+        "verdict": "PARTIAL",
+        "reasons": [
+          "полных карточек только 0%",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 7,
+      "sitemap_product_urls": 400,
+      "field_coverage": {
+        "name": 1,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 1,
+        "priceCurrency": 1,
+        "availability": 0
+      },
+      "field_total": 1
+    },
+    {
+      "name": "Skillbox",
+      "url": "https://skillbox.ru/",
+      "status": 200,
+      "final_url": "https://skillbox.ru/",
+      "rendered_bytes": 1900058,
+      "text_chars": 12355,
+      "jsonld_blocks": 13,
+      "product_nodes": 72,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 252,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": 0.0,
+      "notes": [
+        "Из 72 Product-узлов полными являются 0 — остальные выпадают из сравнения агента"
+      ],
+      "error": "",
+      "score": {
+        "score": 40.0,
+        "verdict": "PARTIAL",
+        "reasons": [
+          "полных карточек только 0%",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 7,
+      "sitemap_product_urls": 400,
+      "field_coverage": {
+        "name": 72,
+        "brand": 72,
+        "gtin": 0,
+        "sku": 0,
+        "price": 72,
+        "priceCurrency": 72,
+        "availability": 0
+      },
+      "field_total": 72
+    },
+    {
+      "name": "Rideela",
+      "url": "https://rideela.ru/",
+      "status": 0,
+      "final_url": "https://rideela.ru/",
+      "rendered_bytes": 0,
+      "text_chars": 0,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {},
+      "agent_visible_share": null,
+      "notes": [
+        "Сеть недоступна или соединение прервано"
+      ],
+      "error": "__error__:URLError:<urlopen error [Errno 11001] getaddrinfo failed>",
+      "score": {
+        "score": 0.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "анонимный GET → 0",
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 0,
+      "sitemap_product_urls": 0,
+      "field_coverage": {},
+      "field_total": 0
+    },
+    {
+      "name": "M.Video product",
+      "url": "https://www.mvideo.ru/smartfony-22899/telefony-1/",
+      "status": 200,
+      "final_url": "https://www.mvideo.ru/televizory-i-tsifrovoye-tv-1",
+      "rendered_bytes": 53827,
+      "text_chars": 106,
+      "jsonld_blocks": 0,
+      "product_nodes": 0,
+      "product_complete": 0,
+      "microdata_items": 0,
+      "microdata_products": 0,
+      "img_total": 0,
+      "img_big": 0,
+      "feeds": [],
+      "surfaces": {},
+      "checkout": {
+        "signals": [],
+        "has_open_agent_checkout": false
+      },
+      "agent_visible_share": null,
+      "notes": [
+        "Ссылки на карточки товаров с витрины не обнаружены — проверьте, не отдаётся ли каталог только клиентским JS",
+        "Структурированных данных о товарах не найдено ни на одной открытой странице",
+        "Сервер отдал SPA-оболочку: текста мало, разметки нет. Агент без браузерной автоматизации каталог не прочитает"
+      ],
+      "error": "",
+      "score": {
+        "score": 15.0,
+        "verdict": "INVISIBLE",
+        "reasons": [
+          "нет JSON-LD Product",
+          "доля не измеряется",
+          "нет картинок >= 600x600 в разметке",
+          "нет открытого agent-checkout",
+          "нет открытого товарного фида"
+        ]
+      },
+      "pages_probed": 1,
+      "sitemap_product_urls": 0,
+      "field_coverage": {
+        "name": 0,
+        "brand": 0,
+        "gtin": 0,
+        "sku": 0,
+        "price": 0,
+        "priceCurrency": 0,
+        "availability": 0
+      },
+      "field_total": 0
+    }
+  ]
+}
