@@ -1,0 +1,88 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    name: re-measure the control group
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run the control group
+        run: |
+          python readiness_probe.py --targets targets_control.json --out out_control --no-deep --sleep 1 --discover 4
+
+      - name: The control group must still pass
+        run: |
+          python3 - <<'PY'
+          import json, sys
+
+          with open("out_control/readiness.json", encoding="utf-8") as fh:
+              report = json.load(fh)
+
+          results = {r["name"]: r for r in report["results"]}
+          samsung = next((r for n, r in results.items() if "Samsung" in n), None)
+          assert samsung is not None, "Samsung RU control target is missing from the run"
+          assert samsung["status"] == 200, samsung["status"]
+
+          total = samsung["field_total"]
+          assert total > 0, "no product entities were parsed for the control target"
+          coverage = samsung["field_coverage"]
+          sku = coverage.get("sku", 0)
+          assert sku > 0, (
+              "control target lost sku coverage — the detector regressed, "
+              f"got {sku}/{total}"
+          )
+
+          # Контроль обязан быть лучше основного набора, иначе измерение бессмысленно.
+          with open("results/readiness.json", encoding="utf-8") as fh:
+              main = json.load(fh)
+          main_total = sum(r.get("field_total", 0) for r in main["results"])
+          main_sku = sum(r.get("field_coverage", {}).get("sku", 0) for r in main["results"])
+          if main_total:
+              main_rate = main_sku / main_total
+              control_rate = sku / total
+              assert control_rate > main_rate, (
+                  f"control sku rate {control_rate:.3f} is not above main set {main_rate:.3f}"
+              )
+              print(f"control sku {control_rate:.1%} > main set sku {main_rate:.1%}")
+
+          print("control group holds:", coverage)
+          PY
+
+      - name: Upload the raw control results
+        uses: actions/upload-artifact@v4
+        with:
+          name: readiness-control-results
+          path: out_control
+
+  pages:
+    name: publish the landing page
+    needs: probe
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
