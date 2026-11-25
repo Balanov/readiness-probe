@@ -1,5 +1,7 @@
 # readiness-probe
 
+[![CI](https://github.com/Balanov/readiness-probe/actions/workflows/ci.yml/badge.svg)](https://github.com/Balanov/readiness-probe/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Stars](https://img.shields.io/github/stars/Balanov/readiness-probe?style=flat-square&label=stars)](https://github.com/Balanov/readiness-probe)
+
 **Измеритель готовности интернет-магазина к покупкам через ИИ-агента.**
 
 Анонимный GET, без браузерной автоматизации, без авторизации — ровно так, как работает
@@ -173,3 +175,9 @@ targets_control.json    7 витрин: контрольная группа
 results/                машинные и человекочитаемые результаты прогона
 results_control/        результаты контрольной группы
 ```
+
+## Related projects
+
+- [equal](https://github.com/Balanov/equal) — turns real API traffic into a local sandbox and an OpenAPI spec.
+- [priemka](https://github.com/Balanov/priemka) — acceptance gates for AI systems before production.
+- [held](https://github.com/Balanov/held) — held-out measurement for claimed AI and robot improvements.
