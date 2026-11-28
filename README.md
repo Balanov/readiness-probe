@@ -18,6 +18,9 @@
 
 [PACT](https://github.com/Balanov/pact) — формат для платежей по инициативе агента: quote, consent, commit, receipt, связанные дайджестами. [attest](https://github.com/Balanov/attest) — офлайновый проверяющий цепочек PACT: один статический бинарник, стандартная библиотека, без сети.
 
+- [pact-conformance](https://github.com/Balanov/pact-conformance) — a GitHub Action that verifies a payment trail in CI and ships a badge.
+- [awesome-pact](https://github.com/Balanov/awesome-pact) — implementations, merchants, adapters and writing about verifiable agent payments. Add yours in one line.
+
 Если агент читает ваш магазин, он рано или поздно будет в нём платить.
 
 ## Зачем
